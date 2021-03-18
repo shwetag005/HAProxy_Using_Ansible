@@ -1,0 +1,16 @@
+# task file for webserver
+
+ - name: "Install httpd"
+   package:
+       name: "httpd"
+       state: present
+
+ - name: "Copy the content"
+   copy:
+       src: "/etc/ansible/roles/index.html"
+       dest: /var/www/html/
+
+ - name: "Restart httpd"
+   service:
+       name: "httpd"
+       state: started
